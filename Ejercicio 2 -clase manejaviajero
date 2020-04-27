@@ -1,0 +1,44 @@
+from viajero import ViajeroFrecuente
+
+class listamanejaviaj:
+    __listav = []
+
+    def __init__(self):
+        self.__listav = []
+
+    def __str__(self):
+        i=""
+        for viajero in self.__listav:
+            i += str(viajero)+'\n'
+        return i
+
+    def nuevoviaj(self, otroviaj):
+        if type(otroviaj) == ViajeroFrecuente:
+            self.__listav.append(otroviaj)
+
+    def getnummill(self,indice):
+        if type(indice) == int:
+            i = self.__listav[indice].cantidadtotaldemillas()
+            return i
+
+    def acumula(self,millas,indice):
+        self.__listav[indice].acumularmillas(millas)
+
+    def canjear(self,millas,indice):
+        self.__listav[indice].canjearmillas(millas)
+
+    def buscanumviajero (self, numviaj):
+        #for indice, viajero in enumerate(self.__listav):
+        #    if viajero.getnumeroviaj() == numviaj:
+        #        return indice
+
+        j = 0
+        x = len(self.__listav)
+        i=self.__listav[0].getnumeroviaj()
+        while (numviaj != i) and (j != x):
+            j += 1
+            i = self.__listav[j].getnumeroviaj()
+        if j != x:
+            return j
+        else:
+            return None
