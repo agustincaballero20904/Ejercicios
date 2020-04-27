@@ -1,0 +1,77 @@
+class FechaHora:
+    __dia = 0
+    __mes = 0
+    __anio = 0
+    __hora = 0
+    __min = 0
+    __seg = 0
+
+    def __init__(self, d=1, mes=1, a=2020, h=0, m=0, s=0):
+        self.__dia = d
+        self.__mes = mes
+        self.__anio = a
+        self.__hora = h
+        self.__min = m
+        self.__seg = s
+
+    def Mostrar(self):
+        print("{}/{}/{}   {}:{}:{}".format(self.__dia, self.__mes, self.__anio, self.__hora, self.__min, self.__seg))
+
+    def PonerEnHora(self, h=0, m=0, s=0):
+        if (self.__hora in range(24)) and (self.__min in range(60)) and (self.__seg in range(60)):
+            self.__hora = h
+            self.__min = m
+            self.__seg = s
+
+    def AdelantarHora(self, h=0, m=0, s=0):
+        self.__hora += h
+        self.__min += m
+        self.__seg += s
+
+        if self.__seg > 59:
+            self.__seg -= 60
+            self.__min += 1
+
+        if self.__min > 59:
+            self.__min -= 60
+            self.__hora += 1
+
+        if self.__hora > 23:
+            self.__hora -= 24
+            self.__dia += 1
+
+        if self.__dia > 28:
+            mes = self.__mes
+            if (mes != 1) and (mes != 3) and (mes != 5) and (mes != 7) and (mes != 8) and (mes != 10) and (mes != 12):
+
+                if mes != 2:
+
+                    if self.__dia == 31:
+                        self.__dia = 1
+                        self.__mes += 1
+
+                else:
+                    if self.__anio % 4 == 0:
+                        if self.__anio % 100 == 0:
+                            if self.__anio % 400 == 0:
+                                if self.__dia == 30:
+                                    self.__dia = 1
+                                    self.__mes += 1
+                        else:
+                            if self.__dia == 30:
+                                self.__dia = 1
+                                self.__mes += 1
+                    else:
+                        if self.__dia == 29:
+                            self.__dia = 1
+                            self.__mes += 1
+
+            else:
+                if self.__dia == 32:
+                    self.__dia = 1
+
+                    if self.__mes == 12:
+                        self.__mes = 1
+                        self.__anio += 1
+                    else:
+                        self.__mes += 1
