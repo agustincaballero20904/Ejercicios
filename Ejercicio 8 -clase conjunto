@@ -1,0 +1,64 @@
+class Conjunto:
+    __num = []
+
+    def __init__(self, fila):
+        if type(fila) == list:
+            self.__num = []
+            for i in range(len(fila)):
+                if fila[i] != '':
+                    self.__num.append(fila[i])
+                    print(self.__num)
+
+    def __str__(self):
+        return "{}".format(self.__num)
+
+    def getconj(self):
+        return self.__num
+
+    def __add__(self, otroconj):
+        if type(otroconj) == Conjunto:
+            launion = []
+            launion.extend(self.__num)
+            launion.extend(otroconj.getconj())
+            print(launion)
+            j = 0
+            while j in range(len(launion)):
+                if int(launion.count(launion[j])) > 1:
+                    launion.remove(launion[j])
+                else:
+                    j += 1
+            return launion
+
+    def __sub__(self, otroconj):
+        if type(otroconj) == Conjunto:
+            ladif = []
+            ladif.extend(self.__num)
+            ladif.extend(otroconj.getconj())
+            j = 0
+            while j in range(len(ladif)):
+                if ladif.count(ladif[j]) > 1:
+                    iguales = ladif[j]
+                    ladif.remove(iguales)
+                    ladif.remove(iguales)
+                else:
+                    j += 1
+            return ladif
+
+    def __eq__(self, otroconjunto):
+        if type(otroconjunto) == Conjunto:
+            listaconjunto = otroconjunto.getconj()
+            laotralista = self.__num
+            if len(laotralista) == len(listaconjunto):
+                laotralista.sort()
+                listaconjunto.sort()
+                bandera = True
+                j = 0
+                while (j in range(len(laotralista))) and bandera:
+                    if laotralista[j] != listaconjunto[j]:
+                        bandera = False
+                    else:
+                        j += 1
+                if bandera:
+                    return True
+                else:
+                    return False
