@@ -1,0 +1,65 @@
+import csv
+from email import Email
+
+if __name__=='__main__':
+
+    print("Ingrese nombre: ")
+    nombre=input()
+    print("Ingrese id: ")
+    id = input()
+    print("Ingrese dominio: ")
+    dominio = input()
+    print("Ingrese tipo de dominio: ")
+    tipo = input()
+    print("Ingrese su contraseña: ")
+    contras = input()
+
+    mail=Email(id,dominio,tipo,contras)
+    print("Estimado ",nombre," le enviaremos sus mensajes a la direccion de correo ",mail.retornaEmail())
+
+    print("Ingrese su contraseña actual: ")
+    contras=input()
+
+    if(contras==mail.retcontra()):
+        print("Ingrese su nueva contraseña: ")
+        contras=input()
+        mail.modcontra(contras)
+        print("La contraseña se modifico correctamente")
+
+    else:
+        print("Contraseña incorrecta")
+
+    print("Ingrese direccion de correo: ")
+    dir=input()
+    if (dir.count("@") == 1):
+        if (dir.count(".") == 1):
+            a, b = nombre.split('@')
+            b, c = b.split('.')
+            print("Ingrese su contraseña")
+            contras = input()
+            mai = Email(a, b, c, contras)
+            print("Cuenta creada satisfactoriamente")
+        else:
+            print("Direccion no valida")
+    else:
+        print("Direccion no valida")
+
+    print("Ingrese dominio a buscar: ")
+    dominio=input()
+
+    listamails=[]
+    archivo=open('mails.csv')
+    reader=csv.reader(archivo,delimiter=',')
+    for fila in reader:
+        nombre=fila[0]
+        a, b = nombre.split('@')
+        b, c = b.split('.')
+        listamails.append(Email(a,b,c))
+
+    contador=0
+    for i in range(10):
+        compara=listamails[i].getDominio()
+        if (compara==dominio):
+            contador+=1
+
+    print("Existen ",contador," emails con dominio  ",dominio)
