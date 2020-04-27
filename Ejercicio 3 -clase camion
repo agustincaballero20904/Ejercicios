@@ -1,0 +1,28 @@
+class camion:
+    __identificador = 0
+    __nombreconductor = ""
+    __patente = ""
+    __marca = ""
+    __tara = 0
+
+    def __init__(self, ident, nombre, patente, marca, tara):
+        self.__identificador = int(ident)
+        self.__nombreconductor = str(nombre)
+        self.__patente = str(patente)
+        self.__marca = str(marca)
+        self.__tara = int(tara)
+
+    def __str__(self):
+        return "Identificador {}\nConductor {}\nPatente {}\nMarca {}\nTara {}\n".format(self.__identificador, self.__nombreconductor, self.__patente, self.__marca, self.__tara)
+
+    def getid(self):
+        return self.__identificador
+
+    def gettara(self):
+        return self.__tara
+
+    def getpatente(self):
+        return self.__patente
+
+    def getconductor(self):
+        return self.__nombreconductor
