@@ -1,0 +1,17 @@
+class cosecha:
+    __lista = []
+
+    def __init__(self):
+        self.__lista = [[0]*20 for i in range(45)] #primer numero son numero de columnas y el segundo numero de filas
+
+    def addcsv(self, fila, i, j):
+        self.__lista[i][j] += int(fila)
+
+    def contadorcamiones(self, j):
+        x = 0
+        for i in range(45):
+            x += self.__lista[i][j]
+        return x
+
+    def obtenerpeso(self, i, j):
+        return self.__lista[i][j]
