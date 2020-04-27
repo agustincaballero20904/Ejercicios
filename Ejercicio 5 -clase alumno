@@ -1,0 +1,34 @@
+class Alumno:
+    __nombre = ""
+    __anio = 0
+    __div = 0
+    __inasist = 0
+    maxinasist = 30
+    totclases = 100
+
+    def __init__(self, n, a, d, inas):
+        if (type(n) == str) and (type(a) == int) and (type(d) == int) and (type(inas) == int):
+            self.__nombre = n
+            self.__anio = a
+            self.__div = d
+            self.__inasist = inas
+
+    def getanio(self):
+        return self.__anio
+
+    def getdiv(self):
+        return self.__div
+
+    def getinasist(self):
+        return self.__inasist
+
+    def getnombre(self):
+        return self.__nombre
+
+    @classmethod
+    def getmaxin(cls):
+        return cls.maxinasist
+
+    @classmethod
+    def gettotclas(cls):
+        return cls.totclases
