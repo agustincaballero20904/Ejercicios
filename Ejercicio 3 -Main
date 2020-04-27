@@ -1,0 +1,64 @@
+import csv
+from Camion import camion
+from ManejaCamiones import manejacamiones
+from Cosecha import cosecha
+
+
+def opcion0():
+    print("Finalizado")
+
+def opcion1():
+    ident = int(input("Ingrese identificador de camion\n"))
+    print("El camion con identificador", ident, "descargo un total de {} kg".format(matrizcosecha.contadorcamiones(ident)))
+
+def opcion2():
+    ident = int(input("Ingrese dia\n"))
+    print("PATENTE             CONDUCTOR           CANTIDAD DE KILOS")
+    for j in range(20):
+        indicecam = listacamiones.getindicecam(int(j))
+        if indicecam != None:
+            kilosentregados = matrizcosecha.obtenerpeso(ident, j)
+            if kilosentregados != 0:
+                patente = listacamiones.obtenerpatente(indicecam)
+                conductor = listacamiones.obtenerconductor(indicecam)
+                print("{:20s}{:20s}{:<20d}".format(patente, conductor, kilosentregados))
+
+switcher = {
+    0: opcion0,
+    1: opcion1,
+    2: opcion2,
+}
+
+def switch(argumento):
+    func = switcher.get(argumento, lambda: print("Opcion incorrecta"))
+    func()
+
+if __name__ == '__main__':
+
+    listacamiones = manejacamiones()
+
+    archivo = open("camiones.csv")
+    reader = csv.reader(archivo, delimiter=",")
+    for fila in reader:
+        uncamion = camion(int(fila[0]), str(fila[1]), str(fila[2]), str(fila[3]), int(fila[4]))
+        listacamiones.addcamion(uncamion)
+
+    matrizcosecha = cosecha()
+    archivo = open("cosechado.csv")
+    reader = csv.reader(archivo, delimiter=",")
+    for fila in reader:
+        indicecamion = listacamiones.getindicecam(int(fila[0]))
+        if indicecamion != None:
+            tara = listacamiones.obtenertara(indicecamion)
+            peso = int(fila[2]) - tara
+            matrizcosecha.addcsv(int(peso), int(fila[1]), int(fila[0]))
+
+    bandera = False
+    while not bandera:
+        print("")
+        print("0: Salir")
+        print("1: Mostrar cantidad de kilos descargados por un camion")
+        print("2: Mostrar datos del dia")
+        opcion = int(input("Ingrese una opcion:"))
+        switch(opcion)
+        bandera = int(opcion) == 0
