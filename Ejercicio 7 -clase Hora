@@ -1,0 +1,15 @@
+class Hora:
+    __hora = 0
+    __min = 0
+    __seg = 0
+
+    def __init__(self, h=0, m=0, s=0):
+        self.__hora = h
+        self.__min = m
+        self.__seg = s
+
+    def Mostrar(self):
+        print("{}:{}:{}".format(self.__hora, self.__min, self.__seg))
+
+    def gethora(self):
+        return self.__hora, self.__min, self.__seg
