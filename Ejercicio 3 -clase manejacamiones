@@ -1,0 +1,32 @@
+from Camion import camion
+
+class manejacamiones:
+    __lista = []
+
+    def __init__(self):
+        self.__lista = []
+
+    def addcamion(self, uncamion):
+        if type(uncamion) == camion:
+            self.__lista.append(uncamion)
+
+    def getindicecam(self, id):
+        j = 0
+        x = len(self.__lista)-1
+        i = self.__lista[0].getid()
+        while (id != i) and (j != x):
+            j += 1
+            i = self.__lista[j].getid()
+        if j == x:
+            return None
+        else:
+            return j
+
+    def obtenertara(self, indice):
+        return self.__lista[indice].gettara()
+
+    def obtenerpatente(self,indice):
+        return self.__lista[indice].getpatente()
+
+    def obtenerconductor(self, indice):
+        return self.__lista[indice].getconductor()
