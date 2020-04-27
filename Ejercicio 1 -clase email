@@ -1,0 +1,23 @@
+class Email:
+    __idcuenta=""
+    __dominio=""
+    __tipodominio=""
+    __contrasena:""
+
+    def __init__(self,id,dom,tipodom,contra=""):
+        self.__idcuenta=id
+        self.__dominio=dom
+        self.__tipodominio=tipodom
+        if type(contra) == str:
+            self.__contrasena=contra
+        else:
+            self.__contrasena=str(contra)
+    def retornaEmail(self):
+        emai=self.__idcuenta+"@"+self.__dominio+"."+self.__tipodominio
+        return emai
+    def getDominio(self):
+        return self.__dominio
+    def retcontra(self):
+        return self.__contrasena
+    def modcontra(self,contrase):
+        self.__contrasena=str(contrase)
