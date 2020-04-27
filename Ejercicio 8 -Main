@@ -1,0 +1,88 @@
+import csv
+from conjunto import Conjunto
+
+
+def mostrarconj():
+    for i in range(len(lista)):
+        print("Conjunto N°{}: {}".format(i+1, lista[i].getconj()))
+
+
+def valida(a, b):
+    if a in range(len(lista)) or a == len(lista):
+        if b in range(len(lista)) or b == len(lista):
+            return True
+        else:
+            return False
+    else:
+        return False
+
+def opcion0():
+    print("Finalizado")
+
+
+def opcion1():
+    mostrarconj()
+    conj1 = int(input("Ingrese numero del primer conjunto a unir\n"))
+    conj2 = int(input("Ingrese numero del segundo conjunto a unir\n"))
+    if valida(conj1, conj2):
+        union = lista[conj1-1] + lista[conj2-1]
+        print(union)
+    else:
+        print("Ingrese el numero de un conjunto existente")
+
+
+def opcion2():
+    mostrarconj()
+    conj1 = int(input("Ingrese numero del primer conjunto a obtener diferencia\n"))
+    conj2 = int(input("Ingrese numero del segundo conjunto a obtener diferencia\n"))
+    if valida(conj1, conj2):
+        diferencia = lista[conj1-1] - lista[conj2-1]
+        print(diferencia)
+    else:
+        print("Ingrese el numero de un conjunto existente")
+
+
+def opcion3():
+    mostrarconj()
+    conj1 = int(input("Ingrese numero del primer conjunto a igualar\n"))
+    conj2 = int(input("Ingrese numero del segundo conjunto a igualar\n"))
+    if valida(conj1, conj2):
+        if lista[conj1-1] == lista[conj2-1]:
+            print("Los conjuntos son iguales")
+        else:
+            print("Los conjuntos son distintos")
+    else:
+        print("Ingrese el numero de un conjunto existente")
+
+
+switcher = {
+    0: opcion0,
+    1: opcion1,
+    2: opcion2,
+    3: opcion3,
+}
+
+def switch(argumento):
+    func = switcher.get(argumento, lambda: print("Opcion incorrecta"))
+    func()
+
+
+if __name__ == '__main__':
+    lista = []
+    archivo = open("conjuntos.csv")
+    reader = csv.reader(archivo, delimiter=";")
+    for fila in reader:
+        unconjunto = Conjunto(fila)
+        lista.append(unconjunto)
+        print(fila)
+
+    bandera = False
+    while not bandera:
+        print("")
+        print("0: Salir")
+        print("1: Unir conjuntos")
+        print("2: Diferencia de conjuntos")
+        print("3: Verificar si dos conjuntos son iguales")
+        opcion = int(input("Ingrese una opcion:"))
+        switch(opcion)
+        bandera = int(opcion) == 0
