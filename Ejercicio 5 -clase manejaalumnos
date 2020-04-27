@@ -1,0 +1,20 @@
+from alumno import Alumno
+
+class Manejaalumnos:
+    __lista = []
+
+    def __init__(self):
+        self.__lista = []
+
+    def addalumno(self, unalumno):
+        if type(unalumno) == Alumno:
+            self.__lista.append(unalumno)
+
+    def buscaalumnos(self, a, d):
+        for i in range(len(self.__lista)):
+            if self.__lista[i].getanio() == int(a):
+                if self.__lista[i].getdiv() == int(d):
+                    inasis = self.__lista[i].getinasist()
+                    if inasis > Alumno.getmaxin():
+                        tot = Alumno.gettotclas()
+                        print("{:20s}{}%".format(self.__lista[i].getnombre(), int(inasis)*100/int(tot)))
