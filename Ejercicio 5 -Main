@@ -1,0 +1,52 @@
+import csv
+from alumno import Alumno
+from manejaalumnos import Manejaalumnos
+
+
+def opcion0():
+    print("Finalizado")
+
+
+def opcion1():
+    an = int(input("Ingrese año: "))
+    div = int(input("Ingrese division: "))
+    print("Alumno              Porcentaje")
+    listaalum.buscaalumnos(an, div)
+
+
+def opcion2():
+    cambio = int(input("Ingrese la nueva cantidad maxima de inasistencias"))
+    Alumno.maxinasist = int(cambio)
+
+
+switcher = {
+    0: opcion0,
+    1: opcion1,
+    2: opcion2,
+}
+
+
+def switch(argumento):
+    func = switcher.get(argumento, lambda: print("Opcion incorrecta"))
+    func()
+
+
+if __name__ == '__main__':
+
+    listaalum = Manejaalumnos()
+    archivo = open("alumnos.csv")
+    reader = csv.reader(archivo, delimiter=",")
+    for fila in reader:
+        unalumno = Alumno(str(fila[0]), int(fila[1]), int(fila[2]), int(fila[3]))
+        listaalum.addalumno(unalumno)
+        print(fila)
+
+    bandera = False
+    while not bandera:
+        print("")
+        print("0: Salir")
+        print("1: Ver porcentaje de inasistencias de alumnos que superan la cantidad maxima de inasistencias")
+        print("2: Modificar cantidad maxima de inasistencias")
+        opcion = int(input("Ingrese una opcion:"))
+        switch(opcion)
+        bandera = int(opcion) == 0
