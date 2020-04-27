@@ -1,0 +1,55 @@
+class ViajeroFrecuente:
+    __numviajero = 0
+    __dni = 0
+    __nombre = ""
+    __apellido = ""
+    __millacum = 0
+
+    def __init__(self, numvia, documento, name, apell, millas=0):
+        if type(numvia)==int:
+            self.__numviajero = numvia
+        else:
+            print("Error numero de viajero no valido")
+        if type(documento)==int:
+            self.__dni = documento
+        else:
+            print("Error documento no valido")
+        if type(name)==str:
+            self.__nombre = name
+        else:
+            print("Error nombre no valido")
+        if type(apell)==str:
+            self.__apellido = apell
+        else:
+            print("Error apellido no valido")
+        if type(millas)==int:
+            self.__millacum = millas
+        else:
+            print("Error al cargar las millas")
+            self.__millacum = 0
+
+    def __str__(self):
+        return "Numero de viajero: {}\nDNI: {}\nNombre: {}\Apellido: {}\nMillas acumuladas: {}\n".format(self.__numviajero, self.__dni, self.__nombre, self.__apellido, self.__millacum)
+
+    def cantidadtotaldemillas(self):
+        return self.__millacum
+
+    def getnumeroviaj(self):
+        return self.__numviajero
+
+    def acumularmillas(self, millrecorri):
+        if type(millrecorri) == int:
+            self.__millacum += millrecorri
+            print("Operacion exitosa")
+        else:
+            print("Error al acumular millas")
+
+    def canjearmillas(self, millascanjear):
+        if type(millascanjear) == int:
+            if self.__millacum >= millascanjear:
+                self.__millacum -= millascanjear
+                print("Operacion exitosa")
+            else:
+                print("No posee suficientes millas para hacer este cambio")
+        else:
+            print("Error en la operación")
