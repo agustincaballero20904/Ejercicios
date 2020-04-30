@@ -1,0 +1,258 @@
+from claseFechahora import Fechahora
+
+class Alumno:
+
+    __Nombre = ""
+    __Registro = 0
+    __DNI=""
+    __Email=""
+    __Fecha_nacimiento=FechaHora()
+
+    def __init__(self, nombre, registro, dni,email,fecha):
+        if type(fecha) == FechaHora:
+            self.__Nombre = str(nombre)
+            self.__Registro = int(registro)
+            self.__DNI = str(dni)
+            self.__Email = str(email)
+            self.__Fecha_nacimiento = fecha
+
+    def get_registro(self):
+        return self.__Registro
+
+    def get_nombre(self):
+        return self.__Nombre
+
+    def get_dni(self):
+        return self.__DNI
+
+    def get_email(self):
+        return self.__Email
+
+    def get_añol(self):
+        return self.__Fecha_nacimiento.getanio()
+
+    def get_dia(self):
+        return self.__Fecha_nacimiento.getdia()
+
+    def get_mesl(self):
+        return self.__Fecha_nacimiento.getmes()
+
+    def saludo_cumpleaños(self):
+        print("Feliz cumpleaños {}!!!".format(self.__Nombre))
+
+    def mostrar(self):
+        print("Nombre: {}\nRegistro: {}\nDNI: {}\nEmail: {}\nFecha de nacimiento: {}".format(self.__Nombre, self.__Registro, self.__DNI, self.__Email, self.__Fecha_nacimiento))
+        
+        
+        
+        
+        
+        
+        
+import csv
+from alumno import Alumno
+
+class ManejadorAlumno:
+    __Alumnos=[]
+
+    def __init__(self):
+        self.__Alumnos = []
+
+    def agregar(self, unAlumno):
+        if type(unAlumno) == Alumno:
+            self.__Alumnos.append(unAlumno)
+
+    def buscar_Alumno_porRegistro(self, numeroregistro):
+        if type(numeroregistro) == int:
+            j = 0
+            x = len(self.__Alumnos)-1
+            i = self.__Alumnos[j].get_registro()
+            while (numeroregistro != i) and (j != x):
+                j += 1
+                i = self.__Alumnos[j].get_registro()
+            if x == j:
+                print("No se encuentra entre los alumnos")
+                return None
+            else:
+                return j
+        else:
+            print("Dato ingresado no valido")
+            return None
+
+    def buscar_alumno_porNombre(self,nombre):
+        if type(nombre) == str:
+            j = 0
+            x = len(self.__Alumnos) - 1
+            i = self.__Alumnos[j].get_nombre()
+            while (nombre != i) and (j != x):
+                j += 1
+                i = self.__Alumnos[j].get_nombre()
+            if x == j:
+                print("No se encuentra entre los alumnos")
+                return None
+            else:
+                return j
+        else:
+            print("Dato ingresado no valido")
+            return None
+
+    def listar(self):
+        for i in range(len(self.__Alumnos)):
+            print(self.__Alumnos[i].mostrar)
+
+
+
+
+
+class Materia:
+
+    __RegistroA=0
+
+    __Cod_materia=0
+
+    __Nombre_Materia=""
+
+    __Cod_correlativa=0
+
+    __Nombre_correlativa=""
+
+    __Estado_correlativa=""
+
+    def __init__(self,registro="",cod_materia=0,nombre_materia="",cod_correlativa=0,nombre_correlativa,estado_correlativa="")
+        self.__RegistroA = registro
+        self.__Cod_materia = cod_materia
+        self.__Nombre_Materia = nombre_materia
+        self.__Cod_correlativa = cod_correlativa
+        self.__Nombre_correlativa = nombre_correlativa
+        self.__Estado_correlativa = estado_correlativa
+
+    def get_registro(self):
+        return self.__RegistroA
+
+    def get_cod_materia(self):
+        return self.__Cod_materia
+
+    def get_nombre_materia(self):
+        return self.__Nombre_Materia
+
+    def get_cod_correlativa(self):
+        return self.__Cod_correlativa
+
+    def get_nombre_correlativa(self):
+        return self.__Nombre_correlativa
+
+    def get_estado_correlativa(self):
+        return self.__Estado_correlativa
+
+    def mostrar(self):
+        print("Registro alumno:{}\nCodigo materia: {}\nNombre materia: {}\n Codigo correlativa: {}\nNombre correlativa: {}\n Estado correlativa: {}".format(self.__RegistroA, self.__Cod_materia, self.__Nombre_Materia, self.__Cod_correlativa, self.__Nombre_correlativa, self.__Estado_correlativa))
+
+
+
+
+
+
+import csv
+from materia import Materia
+
+
+class ManejadorMateria:
+
+    __Materias=[]
+
+    def __init__(self):
+        self.__Materias = []
+
+    def agregarMateria(self, unaMateria):
+        if type(unaMateria) == Materia:
+            self.__Materias.append(unaMateria)
+
+    def buscar_Materia_porCodigo(self, codigomateria):
+        if type(codigomateria) == int:
+            j = 0
+            x = len(self.__Materias)-1
+            i = self.__Materias[j].get_cod_materia()
+            while (codigomateria != i) and (j != x):
+                j += 1
+                i = self.__Materias[j].get_cod_materia()
+            if x == j:
+                print("No se encuentra en la entre las materias")
+                return None
+            else:
+                return j
+        else:
+            print("Dato ingresado no valido")
+            return None
+
+    def buscar_Materia_porNombre(self,nombre):
+        if type(nombre) == int:
+            j = 0
+            x = len(self.__Materias)-1
+            i = self.__Materias[j].get_nombre_materia()
+            while (nombre != i) and (j != x):
+                j += 1
+                i = self.__Materias[j].get_nombre_materia()
+            if x == j:
+                print("No se encuentra en la entre las materias")
+                return None
+            else:
+                return j
+        else:
+            print("Dato ingresado no valido")
+            return None
+
+    def lista_Materia_con_correlativa(self, registro):
+        for i in range(len(self.__Materias)):
+            if self.__Materias[i].get_registro == registro:
+                print("{:20s}{:20s}{}".format(self.__Materias[i].get_nombre_materia,
+                                              self.__Materias[i].get_nombre_correlativa,
+                                              self.__Materias[i].get_estado_correlativa))
+
+    def alumno_adeuda_correlativa(self,nombre):
+
+
+    def busca_alumno(self,numero):
+
+    def listar(self):
+        for i in range(len(self.__Materias)):
+            print(self.__Materias[i].mostrar)
+
+
+
+
+
+
+import csv
+from claseFechahora import Fechahora
+from alumno import Alumno
+from manejadoralumno import ManejadorAlumno
+from materia import Materia
+from manejadormateria import ManejadorMateria
+
+if __name__ == '__main__':
+    listaalum = ManejadorAlumno()
+    archivo = open("Alumnos.csv")
+    reader = csv.reader(archivo, delimiter=";")
+    for fila in reader:
+        fecha = Fechahora(fila[4])
+        unalumno = Alumno(str(fila[0]), int(fila[1]), str(fila[2]), str(fila[3]), fecha)
+        listaalum.agregar(unalumno)
+
+    listamat = ManejadorMateria()
+    archivo = open("Materias.csv")
+    reader = csv.reader(archivo, delimiter=";")
+    for fila in reader:
+        unamateria = Materia(int(fila[0]), int(fila[1]), str(fila[2]), int(fila[3]), str(fila[4]),str(fila[5]))
+        listamat.agregarMateria(unamateria)
+
+    print("Ingrese numero de registro")
+    reg=int(input())
+    alumno = listaalum.buscar_Alumno_porRegistro(reg)
+    nombreal = listaalum[alumno].get_nombre()
+    correoal = listaalum[alumno].get_email()
+    print("Alumno: {}\nMail: {}".format(nombreal, correoal))
+    print("Materia             Correlativo          Situacion")
+    listamat.lista_Materia_con_correlativa(reg)
+
+
+
