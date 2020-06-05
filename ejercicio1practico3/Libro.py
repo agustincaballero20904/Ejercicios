@@ -1,0 +1,55 @@
+from Capitulos import capitulo
+
+class libro:
+    __idlibro = 0
+    __titulo = ""
+    __autor = ""
+    __editorial = ""
+    __isbn = 0
+    __cantidadcapitulos = 0
+    __capitulos = []
+
+    def __init__(self, idl, titu, aut, ed, isb, caps):
+        self.__idlibro = idl
+        self.__titulo = titu
+        self.__autor = aut
+        self.__editorial = ed
+        self.__isbn = isb
+        self.__cantidadcapitulos = caps
+        self.__capitulos = []
+
+    def addcapitulo(self, titu, pags):
+        capi = capitulo(titu, pags)
+        self.__capitulos.append(capi)
+
+    def __del__(self):
+        for i in range(self.__cantidadcapitulos):
+            del self.__capitulos[i]
+
+    def mostrar(self):
+        cantidadpags = 0
+        print(self.__titulo, "\n")
+        for i in range(self.__cantidadcapitulos):
+            titulocap = self.__capitulos[i].gettitu()
+            print("Capitulo {}: {}".format(i+1, titulocap))
+            cantidadpags += self.__capitulos[i].getpags()
+        print("Cantidad de paginas: ", cantidadpags)
+
+    def getid(self):
+        return self.__idlibro
+
+    def buscapalabra(self, palabra):
+        if self.__titulo.find(palabra) == -1:
+            j = 0
+            x = self.__cantidadcapitulos - 1
+            i = self.__capitulos[j].gettitu()
+            while (i.find(palabra) == -1) and (j != x):
+                j += 1
+                i = self.__capitulos[j].gettitu()
+            if j != x:
+                self.mostrarautytitu
+        else:
+            self.mostrarautytitu()
+
+    def mostrarautytitu(self):
+        print("\nLibro: {}\nAutor: {}".format(self.__titulo, self.__autor))
