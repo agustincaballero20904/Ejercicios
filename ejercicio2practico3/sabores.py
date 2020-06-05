@@ -1,0 +1,25 @@
+class sabor:
+    __numero = 0
+    __nombre = ""
+    __descripcion = ""
+
+    def __init__(self, num, nom, descr):
+        self.__numero = int(num)
+        self.__nombre = nom
+        self.__descripcion = descr
+
+    def __str__(self):
+        return "Sabor: {}\nNumero {}\nDescripcion{}\n".format(self.__nombre, self.__numero, self.__descripcion)
+
+    def darnombre(self):
+        return self.__nombre
+
+    def darnum(self):
+        return self.__numero
+
+    def __ne__(self, heladito):
+        band = False
+        if type(heladito) == sabor:
+            if self.__nombre != heladito.darnombre():
+                band = True
+        return band
