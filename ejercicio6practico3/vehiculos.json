@@ -1,0 +1,40 @@
+{
+    "__class__": "Lista",
+    "nodos": [
+        {
+            "__class__": "nuevo",
+            "atributos": {
+                "modelo": "Focus",
+                "cantpuertas": 4,
+                "color": "Negro",
+                "preciobase": 600000,
+                "marca": "Chevrolet",
+                "full": "True"
+            }
+        },
+        {
+            "__class__": "usado",
+            "atributos": {
+                "modelo": "Focus",
+                "cantpuertas": 4,
+                "color": "Azul",
+                "preciobase": 600000,
+                "marca": "Chevrolet",
+                "patente": "a123bc",
+                "anio": 2014,
+                "km": 50000
+            }
+        },
+        {
+            "__class__": "nuevo",
+            "atributos": {
+                "modelo": "Palio",
+                "cantpuertas": 4,
+                "color": "azul",
+                "preciobase": 500000,
+                "marca": "Chevrolet",
+                "full": false
+            }
+        }
+    ]
+}
