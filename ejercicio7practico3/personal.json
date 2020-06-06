@@ -1,0 +1,67 @@
+{
+    "__class__": "Lista",
+    "nodos": [
+        {
+            "__class__": "DocenteInvestigador",
+            "atributos": {
+                "cuil": "20417415664",
+                "apellido": "Lopez",
+                "nombre": "Juan",
+                "sueldobase": 5000,
+                "antig": 5,
+                "carrera": "LCC",
+                "cargo": "Exclusivo",
+                "catedra": "Matematica",
+                "area": "unarea",
+                "tipo": "untipo",
+                "extra": 2000,
+                "categoria": 1
+            }
+        },
+        {
+            "__class__": "DocenteInvestigador",
+            "atributos": {
+                "cuil": "20399034454",
+                "apellido": "Suarez",
+                "nombre": "Franco",
+                "sueldobase": 5000,
+                "antig": 3,
+                "carrera": "LCC",
+                "cargo": "Simple",
+                "catedra": "Matematica",
+                "area": "unarea",
+                "tipo": "untipo",
+                "extra": 2000,
+                "categoria": 2
+            }
+        },
+        {
+            "__class__": "PersonaldeApoyo",
+            "atributos": {
+                "cuil": "20403849544",
+                "apellido": "Fernandez",
+                "nombre": "Jose",
+                "sueldobase": 3000,
+                "antig": 9,
+                "categoria": 11
+            }
+        },
+        {
+            "__class__": "DocenteInvestigador",
+            "atributos": {
+                "cuil": "20413946774",
+                "apellido": "Molina",
+                "nombre": "Andres",
+                "sueldobase": 4000,
+                "antig": 13,
+                "carrera": "lcc",
+                "cargo": "semiexclusivo",
+                "catedra": "Algoritmos",
+                "area": "unarea",
+                "tipo": "untipo",
+                "extra": 1700,
+                "categoria": 2
+            }
+        }
+    ]
+}
