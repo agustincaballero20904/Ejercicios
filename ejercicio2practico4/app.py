@@ -51,6 +51,7 @@ class aplicacion():
                     if b[j][0] == 'venta':
                         valventa = b[j][1]
                         valventa = valventa.replace(',','.')
+                        band = True
                     j += 1
             i += 1
 
