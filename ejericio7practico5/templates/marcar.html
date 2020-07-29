@@ -1,0 +1,18 @@
+{% extends "basenav.html" %}
+{% block title %}Cobrar Pedido{% endblock %}
+{% block content2 %}
+<div class="contreg2 centrar">
+    <div class="cobro2">
+    <form action="{{request.path}}" method="post">
+        <div>
+            <h4 style="color:white;"> Pedido {{ pedido }} </h5>
+            <p style="color:white;"> {{ productos.Nombre }}<br>Se marcara el producto del pedido como listo </p>
+        </div>
+        <div>
+            <a href = "{{ url_for('VerPedidos') }}" class="boton2 sindec"> Cancelar </a>
+            <input type="submit" value="Aceptar" class="boton2 sindec"/>
+        </div>
+    </form>
+    </div>
+</div>
+{% endblock %}  

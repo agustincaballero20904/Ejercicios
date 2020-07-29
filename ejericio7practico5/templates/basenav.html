@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="todo">
+    <ul class="navbar">
+        <li class="nombre">CGA</li>
+        <li style="float:right"><a class="cerr" href="{{ url_for('Cerrarsesion') }}">Cerrar sesion</a></li>
+    </ul>
+    {% block content2 %}{% endblock %}  
+</div>
+{% endblock %}  

@@ -1,0 +1,31 @@
+{% extends "basenav.html" %}
+{% block title %}Pedidos Vigentes{% endblock %}
+{% block content2 %}
+<div class="contreg2 centrar">
+    <h1 class="Pedidos">Pedidos</h1>
+    {% if pedidos %}
+        {% for pedido in pedidos %}
+            <ul class="listaindice"> 
+                <a href="{{ url_for('CobrarPedido', pedido=pedido.NumPedido) }}" class="ped">
+                    <div>
+                        <h4> Pedido {{ pedido.NumPedido }} </h5>
+                        <h4> Mesa {{ pedido.Mesa }}</h5>
+                    </div>
+                    <ul style="list-style-type: none;">
+                    {% for item in pedido.Item %}
+                        <li class="items"> {{productos[item.NumProducto-1].Nombre}} </li>
+                    {%  endfor %}
+                    </ul>
+                        <small>Mozo {{ pedido.DNIMozo }}</small>
+                </a>
+            </ul>
+        {% endfor %}
+    {% else %}
+        <h1 style="text-align: center; font-size: 30px;">No se han encontrado pedidos pendientes <span style="font-size: 30px;">
+            </span></h1>
+    {% endif %}
+    <div class="boton1 der">
+        <a href = "{{ url_for('Menu') }}" class="boton1-1"> Volver </a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends "basenav.html" %}
+{% block title %}Registrar Pedido{% endblock %}
+{% block content2 %}
+<div class="contreg centrar">
+    {% if Mesaoc %}
+    <div class="cont5">
+        <div>
+        <form action="{{request.path}}" method="post" class="contenedor2 sinmarg">
+            <label for="Mesa">Mesa numero:</label>
+            <select id="Mesa" name="Mesa" class="ingreso">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            <input type="submit" name="Siguiente" value="Siguiente" class="boton1-1">
+            <div class="boton1">
+                <a href = "{{ url_for('login') }}" class="boton1-1"> Volver al menu</a>
+            </div>
+        </form>
+        
+        </div>
+    </div>
+    {% else %}
+    <div class="divtabla2">
+        <table style="width:100%">
+            <thead>
+                <tr>
+                    <th>Menu</th>
+                </tr>
+            </thead>
+            <tbody>
+                        <form action="{{request.path}}" method="post">
+                            <input type="hidden" name="NumPedido" value="{{Pedido.NumPedido}}">
+                            {% for product in products %}
+                            <tr><td class="bordes">
+                            <input type="submit" name="{{product.NumProducto}}" 
+                            value="{{product.Nombre}}"
+                            class="boton2 botontransparente">
+                            </td>
+                            <td class="bordes">
+                                <p class="listaitem">${{product.PrecioUnitario}}</p>
+                            </td></tr>
+                            {% endfor %}
+                            <tr><td colspan="2">
+                                <label class="observatext">Observaciones</label>
+                                <textarea name="Observaciones" rows="5" cols="30" class="observa">{{Pedido.Observacion}}</textarea>
+                            </td></tr>
+                            <tr><th>
+                            <input type="submit" name="Finalizar" value="Finalizar" class="boton2">
+                            </th></tr>
+                        </form>
+            </tbody>
+        </table>
+    </div>
+    <div class="tablitems">
+	  	<table >
+	  		<thead>
+	  			<tr>
+	  				<th>Pedidos:</th>
+	  			</tr>
+		  	</thead>
+		  	<tbody>
+		  		<tr>
+		  			<td>
+					    <ul class="listaitem">
+					      {% for item in Pedido.Item%}
+					      <li>{{products[item.NumProducto-1].Nombre}}</li>
+					      {% endfor %}
+					    </ul>  
+	 				</td>
+		  		</tr>
+		  		<tr>
+    		  		<td>
+        		  		<p class="listaitem">Total: ${{Pedido.Total}}</p>
+        		  	</td>
+    		    </tr>
+		  	</tbody>
+	  	</table>				
+	  </div>
+    {% endif %}
+    {% if error %}
+        <p class="centrar lugar">{{ error }}</p>
+    {% endif %}
+</div>
+{% endblock %}  

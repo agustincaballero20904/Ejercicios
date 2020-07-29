@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Inicio{% endblock %}
+{% block content %}
+<div class="contenedor1">
+    <h1 class="centrar">
+    Common Gesture App
+    </h1>
+    <div class="divcentrar"><p class="centrar">
+    La app que te permite realizar tus 
+    <br>operaciones de gestion de manera 
+    <br>facil y sencilla
+    </p>
+    </div>
+    <div class="boton1">
+        <a href = "{{ url_for('login') }}" class="boton1-1"> Ingresar </a>
+    </div>
+</div>
+{% endblock %}  

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Error{% endblock %}
+{% block content %}
+{% if error %}
+<div class="contenedor1">
+    <p class="centrar">{{ error }}</p>
+    <div class="boton1">
+        <a href = "{{ url_for('login') }}" class="boton1-1"> Volver </a>
+    </div>
+</div>
+{% endif %}
+{% endblock %}  

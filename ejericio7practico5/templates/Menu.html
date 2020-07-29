@@ -1,0 +1,12 @@
+{% extends "basenav.html" %}
+{% block title %}Menu{% endblock %}
+{% block content2 %}
+<div class="cont3">
+    <div class="cont4">
+        <ul class="lista">
+            <li class="boton3"><a href = "{{ url_for('Registropedidos') }}" class="boton1-2"> Registrar Pedido </a></li>
+            <li class="boton3"><a href = "{{ url_for('VerPedidos') }}" class="boton1-2"> Pedidos Vigentes </a></li>
+        </ul>
+    </div>
+</div>
+{% endblock %}  

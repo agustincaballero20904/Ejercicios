@@ -1,0 +1,23 @@
+{% extends "basenav.html" %}
+{% block title %}Cobrar Pedido{% endblock %}
+{% block content2 %}
+<div class="contreg2 centrar">
+    <div class="cobro">
+    <form action="{{request.path}}" method="post">
+        <div>
+            <h4> Pedido {{ pedido.NumPedido }} </h5>
+            <h4> Total: ${{ pedido.Total }}</h5>
+        </div>
+        <ul style="list-style-type: none;">
+            {% for item in pedido.Item %}
+                <li class="items2"> {{productos[item.NumProducto-1].Nombre}} --- ${{item.Precio}} </li>
+            {%  endfor %}
+        </ul>
+        <div>
+            <a href = "{{ url_for('VerPedidos') }}" class="boton2 sindec"> Cancelar </a>
+            <input type="submit" value="Aceptar" class="boton2 sindec"/>
+        </div>
+    </form>
+    </div>
+</div>
+{% endblock %}  

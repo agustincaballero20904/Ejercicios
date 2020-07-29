@@ -1,0 +1,402 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/*          INICIO          */
+.inicio{
+    font-size: 35px;
+    background: url("/static/images/fondo.png")no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+}
+  
+.contenedor1{
+    box-sizing: content-box;
+    background-color: rgba(0,0,0,0.55);
+    height: 300px;
+    margin-top: 10%;
+    color: white;
+}
+.centrar{
+    margin-right: auto;
+    margin-left: auto;
+}
+.divcentrar{
+    display: flex;
+    justify-content: center;
+}
+.boton1{
+    margin-top: 3%;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+}
+.boton1-1{
+    background: white;
+    color: black;
+    text-decoration: none;
+    font-size: 25px;
+    border-radius: 30px;
+    border: 20px solid white;  
+    padding: 5px;
+}
+.boton1-1:hover{
+    background: rgb(230,230,230);
+    border-color: rgb(230,230,230);
+}
+
+/*          LOGIN          */
+.contenedor2{
+    box-sizing: content-box;
+    background-color: rgba(0,0,0,0.55);
+    margin-top: 20%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    grid-row-gap: 20px;
+    border: 20px solid rgba(0,0,0,0.4);
+    border-radius: 50px;
+    padding: 5px;
+}
+.textodato{
+    font-size: 30px;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    text-align: center;
+    color:white;
+    
+}
+.ingreso{
+    font-size: 20px;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    text-align: center;
+    border-radius: 50px;
+    outline: none;
+}
+.boton2{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    font-size: 20px;
+    border-radius: 20px;
+    text-align: center;
+    background: rgb(230,230,230);
+    border: 5px solid rgb(230,230,230);
+    outline: none;
+    margin-right: auto;
+    margin-left: auto; 
+}
+.boton2:hover{
+    background: white;
+    border-color: white; 
+}
+.boton2:active{
+    background: rgb(200,200,200);
+    border-color: rgb(200,200,200); 
+}
+
+.err{
+    margin-top: 5%;
+    background: rgba(255,255,255,0.5);
+    color: red;
+    border: 5px solid rgba(230,0,0,0.5);
+}
+
+/*          MENU          */
+.todo{
+    height: 100%;
+    width: 100%;
+}
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgba(0,0,0,0.55);
+}
+.nombre{
+    float:left;
+    background: black;
+    color: lightblue;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+}
+.cerr {
+  display: block;
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.cerr:hover{
+    background: gray;
+}
+
+.cont3{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+.cont4{
+    box-sizing: content-box;
+    background-color: rgba(0,0,0,0.55);
+    border: 5px solid rgba(0,0,0,0.55);
+    border-radius: 30px;
+}
+
+.lista {
+    list-style-type: none;
+}
+
+.boton3{
+    margin: 10%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.boton1-2{
+    background: white;
+    text-align: center;
+    color: black;
+    text-decoration: none;
+    font-size: 25px;
+    border-radius: 30px;
+    border: 5px solid white;  
+    padding: 5px;
+}
+.boton1-2:hover{
+    background: rgb(230,230,230);
+    border-color: rgb(230,230,230);
+}
+
+/*          Registro pedidos          */
+.contreg{
+    background: rgba(245,220,220,0.8);
+    width: 80%;
+    min-height: 540px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-column-gap: 200px;
+}
+.divtabla2{
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.cont5{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    margin-top: 50px;
+    width: 100%;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+}
+.sinmarg{
+    box-sizing: content-box;
+    background-color: rgba(255,255,255,0.55);
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: center;
+    grid-row-gap: 20px;
+    grid-column-gap: 20px;
+    border: 20px solid rgba(255,255,255,0.4);
+    border-radius: 50px;
+    padding: 5px;
+    margin: 0px;
+}
+.divtabla{
+    
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+.listaitem{
+    font-size: 20px;
+    color: black;
+}
+.bordes{
+    border-bottom:1px solid black;
+}
+.botontransparente{
+    background-color: rgba(255,255,255,0);
+    border-color: rgba(255,255,255,0);
+}
+.observa{
+    width: 100%;
+    font-size: 15px;
+}
+.observatext{
+    font-size: 25px;
+    color: black;
+}
+.lugar{
+    grid-row-start:2;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    font-size: 30px;
+    color: red;
+}
+
+/*          Pedidos vigentes          */
+.contreg2{
+    background: rgba(245,220,220,0.1);
+    width: 80%;
+    min-height:540px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-column-gap: 100px;
+}
+.Pedidos{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    text-align:center;
+    color: rgb(0,0,250);
+}
+.ped {
+  display: block;
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.listaindice{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    overflow-y: scroll;
+    display: block;
+    max-height:200px;
+    margin: 20px;
+}
+.items{
+    font-size: 24px;
+    padding-left:20px;
+    color: white;
+    text-align: left;
+}
+.der{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+}
+
+/*          Cobrar Pedido          */
+.cobro{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    text-align:center;
+    box-sizing: content-box;
+    background-color: rgba(255,255,255,0.85);
+    margin-top: 15%;
+    min-height: 200px;
+    border: 20px solid rgba(255,255,255,0.4);
+    border-radius: 50px;
+    padding: 5px; 
+}
+.sindec{
+    text-decoration: none;
+    color: black;
+    margin: 10px;
+    font-size:24px;
+    padding:5px;
+}
+.items2{
+    font-size: 24px;
+    color: black;
+    text-align: center;
+}
+
+
+/*          Ver pendientes          */
+
+.listaindice2{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    overflow-y: scroll;
+    display: block;
+    height:200px;
+    margin: 20px;
+}
+.de2{
+    height:172px;
+}
+.contreg3{
+    background: rgba(245,220,220,0.2);
+    width: 80%;
+    min-height:540px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.items3{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    font-size: 24px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+.items3:hover{
+    background-color: gray;
+}
+.dersolo{
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+.obs{
+    font-size: 20px;
+    margin: 20px;
+    overflow-y: scroll;
+    resize: none;
+    background: black;
+    color: white;
+}
+.items4{
+    font-size: 24px;
+    color: white;
+    text-align: center;
+}
+.obstit{
+    text-align:left;
+    margin-left:20px;
+    color: rgb(0,0,250);
+}
+.tabpend{
+    box-sizing: content-box;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.med{
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+.comie{
+    grid-row-start: 1;
+}
+
+.Pedidos2{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    text-align:center;
+    color: rgb(0,0,250);
+}
+.cobro2{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    text-align:center;
+    box-sizing: content-box;
+    background-color: rgba(0,0,0,0.55);
+    margin-top: 15%;
+    height: 200px;
+    border: 20px solid rgba(0,0,0,0.4);
+    border-radius: 50px;
+    padding: 5px; 
+}
